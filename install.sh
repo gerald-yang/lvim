@@ -27,12 +27,12 @@ LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.
 
 cp configs/* ~/.config/lvim/
 
-echo "--------------------------------------------------------------------------------------"
+echo "--------------------------------------------------------------------------------------------------"
 if [ "$INSTALL_FONTS" = "y" ]; then
-        echo "Make sure you set terminal font to JetBrainsMonoNL"
+        echo "Make sure you set the terminal font to JetBrainsMonoNL"
         echo ""
 fi
-echo "Modify background color to #131313 in"
+echo "Start lvim first to install my own plugins and modify background color (bg) to #181818 in"
 echo "~/.local/share/lunarvim/site/pack/lazy/opt/dracula.nvim/lua/dracula/palette.lua"
 echo ""
-echo "--------------------------------------------------------------------------------------"
+echo "--------------------------------------------------------------------------------------------------"
