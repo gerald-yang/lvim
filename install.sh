@@ -15,7 +15,7 @@ if [ "$INSTALL_FONTS" = "y" ]; then
         fc-cache -fv
 fi
 
-sudo apt install -y git make python3-pip python3-dev python-is-python3 cargo ripgrep exuberant-ctags
+sudo apt install -y git make libfuse-dev python3-pip python3-dev python-is-python3 cargo ripgrep exuberant-ctags
 sudo snap install node --classic
 
 wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
