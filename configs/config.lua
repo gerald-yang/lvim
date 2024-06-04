@@ -11,10 +11,13 @@ vim.opt.tabstop = 8
 vim.opt.shiftwidth = 8
 vim.opt.numberwidth = 8
 
+lvim.keys.normal_mode["nc"] = ":verbose set nocursorline<CR>"
+lvim.keys.normal_mode["sc"] = ":verbose set cursorline<CR>"
+
 -- Change the first char to upper case
-lvim.keys.normal_mode["hh"] = "<Esc>b~lea"
+lvim.keys.normal_mode["<C-u>"] = "<Esc>b~lea"
 -- Change the whole word to upper case
-lvim.keys.normal_mode["<C-u>"] = "<Esc>viwUea"
+--lvim.keys.normal_mode["<C-u>"] = "<Esc>viwUea"
 
 lvim.keys.normal_mode["<leader>2"] = ":NvimTreeToggle<CR>"
 lvim.keys.normal_mode["<leader>3"] = ":TagbarToggle<CR>"
