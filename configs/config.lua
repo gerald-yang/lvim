@@ -58,7 +58,6 @@ lvim.plugins = {
   "Mofiqul/dracula.nvim",
   "airblade/vim-gitgutter",
   "preservim/tagbar",
-
   {
     "jackMort/ChatGPT.nvim",
       event = "VeryLazy",
