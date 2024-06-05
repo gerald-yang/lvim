@@ -30,6 +30,8 @@ LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.
 #bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 cp configs/* ~/.config/lvim/
+mkdir -p ~/bin
+cp bin/get-secret-key ~/bin/
 
 echo "------------------------------------------------------------------------------------------------------"
 if [ "$INSTALL_FONTS" = "y" ]; then
