@@ -60,14 +60,14 @@ lvim.plugins = {
   "preservim/tagbar",
 
   -- Plugins for golang and python IDE, copy go-ide.tmp or python-ide.tmp to the bottom of this file
---  "olexsmir/gopher.nvim",
---  "leoluz/nvim-dap-go",
---  "ChristianChiarulli/swenv.nvim",
---  "stevearc/dressing.nvim",
---  "mfussenegger/nvim-dap-python",
---  "nvim-neotest/nvim-nio",
---  "nvim-neotest/neotest",
---  "nvim-neotest/neotest-python",
+  --"olexsmir/gopher.nvim",
+  --"leoluz/nvim-dap-go",
+  --"ChristianChiarulli/swenv.nvim",
+  --"stevearc/dressing.nvim",
+  --"mfussenegger/nvim-dap-python",
+  --"nvim-neotest/nvim-nio",
+  --"nvim-neotest/neotest",
+  --"nvim-neotest/neotest-python",
 }
 
 -- Do not use gitgutter key map
@@ -75,3 +75,16 @@ vim.g.gitgutter_map_keys = 0
 
 -- Colorscheme
 lvim.colorscheme = "dracula"
+
+------------------------
+-- Formatting (GO)
+------------------------
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+  { command = "goimports", filetypes = { "go" } },
+  { command = "gofumpt", filetypes = { "go" } },
+}
+
+lvim.format_on_save = {
+  pattern = { "*.go" },
+}
