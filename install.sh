@@ -15,6 +15,36 @@ if [ "$INSTALL_FONTS" = "y" ]; then
         fc-cache -fv
 fi
 
+echo "Install GO? y or n: "
+read INSTALL_GO
+if [ "$INSTALL_GO" = "y" ] ; then
+        echo "Install go packages"
+        sudo snap install go --classic
+        go install golang.org/x/tools/gopls@latest
+        go install github.com/jstemmer/gotags@latest
+        go install golang.org/x/tools/cmd/goimports@latest
+        go install honnef.co/go/tools/cmd/staticcheck@latest
+        go install github.com/fatih/motion@latest
+        go install github.com/nsf/gocode@latest
+        go install golang.org/x/tools/cmd/guru@latest
+        go install golang.org/x/tools/cmd/gorename@latest
+        go install github.com/rogpeppe/godef@latest
+        go install github.com/kisielk/errcheck@latest
+        go install github.com/klauspost/asmfmt/cmd/asmfmt@latest
+        go install github.com/josharian/impl@latest
+        go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+        go install github.com/fatih/gomodifytags@latest
+        go install honnef.co/go/tools/cmd/keyify@latest
+        go install golang.org/x/lint/golint@latest
+
+        setup_gopath=$(grep 'export GOPATH' ~/.bashrc)
+
+        if [ -z "$setup_gopath" ]; then
+                echo 'export GOPATH=$(go env GOPATH)' >> ~/.bashrc
+                echo 'export PATH=$PATH:$GOPATH/bin' >> ~/.bashrc
+        fi
+fi
+
 sudo apt install -y git make libfuse-dev python3-pip python3-dev python-is-python3 cargo ripgrep exuberant-ctags
 sudo snap install node --classic
 
