@@ -11,6 +11,7 @@ vim.opt.tabstop = 8
 vim.opt.shiftwidth = 8
 vim.opt.numberwidth = 8
 
+-- Set or unset cursor row highlight
 lvim.keys.normal_mode["nc"] = ":verbose set nocursorline<CR>"
 lvim.keys.normal_mode["sc"] = ":verbose set cursorline<CR>"
 
@@ -45,10 +46,12 @@ lvim.keys.normal_mode["gp"] = ":GitGutterPrevHunk<CR>"
 
 lvim.keys.normal_mode["ff"] = ":Telescope fd<CR>"
 lvim.keys.normal_mode["fb"] = ":Telescope buffers<CR>"
+lvim.keys.normal_mode["fs"] = ":Telescope live_grep<CR>"
 
 lvim.keys.normal_mode["<leader>n"] = ":set number<CR>"
 lvim.keys.normal_mode["<leader>r"] = ":set relativenumber<CR>"
 lvim.keys.normal_mode["<leader>a"] = ":set nonumber<CR>:set norelativenumber<CR>"
+
 
 -- Disable mouse, so copy and paste will be handled by terminal
 vim.opt.mouse = ""
