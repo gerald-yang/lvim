@@ -91,6 +91,17 @@ lvim.plugins = {
 -- Do not use gitgutter key map
 vim.g.gitgutter_map_keys = 0
 
+local components = require("lvim.core.lualine.components")
+lvim.builtin.lualine.sections.lualine_a = { "mode" }
+lvim.builtin.lualine.sections.lualine_b = {
+  components.branch,
+  components.diff
+}
+lvim.builtin.lualine.sections.lualine_c = { {"filename", file_status = true, path=2} }
+lvim.builtin.lualine.sections.lualine_y = {
+  components.encoding
+}
+
 -- Colorscheme
 lvim.colorscheme = "dracula"
 
