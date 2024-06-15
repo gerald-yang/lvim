@@ -10,6 +10,7 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 8
 vim.opt.shiftwidth = 8
 vim.opt.numberwidth = 8
+vim.opt.whichwrap = "b,s"
 
 -- Set or unset cursor row highlight
 lvim.keys.normal_mode["nc"] = ":verbose set nocursorline<CR>"
@@ -19,6 +20,9 @@ lvim.keys.normal_mode["sc"] = ":verbose set cursorline<CR>"
 lvim.keys.normal_mode["<C-u>"] = "<Esc>b~lea"
 -- Change the whole word to upper case
 --lvim.keys.normal_mode["<C-u>"] = "<Esc>viwUea"
+
+-- Remove tail space
+lvim.keys.normal_mode["<leader><space>"] = ":StripTrailingWhitespace<CR>"
 
 lvim.keys.normal_mode["<leader>2"] = ":NvimTreeToggle<CR>"
 lvim.keys.normal_mode["<leader>3"] = ":TagbarToggle<CR>"
@@ -61,6 +65,7 @@ lvim.plugins = {
   "Mofiqul/dracula.nvim",
   "airblade/vim-gitgutter",
   "preservim/tagbar",
+  "axelf4/vim-strip-trailing-whitespace",
   {
     "jackMort/ChatGPT.nvim",
       event = "VeryLazy",
