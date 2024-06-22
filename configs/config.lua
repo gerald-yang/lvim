@@ -56,9 +56,22 @@ lvim.keys.normal_mode["<leader>n"] = ":set number<CR>"
 lvim.keys.normal_mode["<leader>r"] = ":set relativenumber<CR>"
 lvim.keys.normal_mode["<leader>a"] = ":set nonumber<CR>:set norelativenumber<CR>"
 
-
 -- Disable mouse, so copy and paste will be handled by terminal
 vim.opt.mouse = ""
+
+-- ChatGPT plugin command
+-- ChatGPT
+-- ChatGPTActAs
+-- ChatGPTCompleteCode
+-- ChatGPTEditWithInstructions
+-- ChatGPTRun
+
+-- ChatGPT plugin key bindings
+-- <Tab> to switch windows
+-- <C-c> to close chat window
+-- <C-p> toggle session list
+-- <C-k> to copy/yank code from last answer
+-- <C-h> toogle help window
 
 -- Plugins for colorscheme, golang, python
 lvim.plugins = {
