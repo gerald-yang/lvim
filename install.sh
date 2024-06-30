@@ -45,7 +45,8 @@ if [ "$INSTALL_GO" = "y" ] ; then
         fi
 fi
 
-sudo apt install -y git make libfuse-dev python3-pip python3-dev python-is-python3 cargo ripgrep exuberant-ctags
+# install libstdc++-12-dev to solve clangd can not find iostream and also make gd work
+sudo apt install -y git make libfuse-dev python3-pip python3-dev python-is-python3 cargo ripgrep exuberant-ctags libstdc++-12-dev
 sudo snap install node --classic
 
 wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
