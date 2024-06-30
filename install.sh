@@ -5,6 +5,8 @@ if [ "$EUID" = 0 ]; then
         exit 1
 fi
 
+sudo apt update
+
 echo "Install JetbrainsNL fonts? y or n: "
 read INSTALL_FONTS
 if [ "$INSTALL_FONTS" = "y" ]; then
@@ -69,7 +71,15 @@ if [ "$INSTALL_FONTS" = "y" ]; then
         echo "Make sure you set the terminal font to JetBrainsMonoNL"
         echo ""
 fi
+echo ""
 echo "Start lvim first to install additional plugins and then modify background color (bg) to #181818 in"
 echo "~/.local/share/lunarvim/site/pack/lazy/opt/dracula.nvim/lua/dracula/palette.lua"
+echo ""
+if [ "$INSTALL_GO" = "y" ] ; then
+        echo "If you hit: xxx/gopls.lua:16: attempt to get length of upvalue 'mod_cache' (a nil value)"
+        echo "get gomodecache path by: go env GOMODECACHE"
+        echo "modify ~/.local/share/lunarvim/site/pack/lazy/opt/nvim-lspconfig/lua/lspconfig/server_configurations/gopls.lua"
+        echo "specify mod_cache path directly in the third line: local mod_cache = ''"
+fi
 echo ""
 echo "------------------------------------------------------------------------------------------------------"
