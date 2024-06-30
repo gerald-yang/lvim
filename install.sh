@@ -55,6 +55,13 @@ wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
 chmod +x nvim.appimage
 mkdir -p ~/bin
 mv nvim.appimage ~/bin/nvim
+cp bin/get-secret-key ~/bin/
+
+setup_path=$(grep 'PATH:~/bin' ~/.bashrc)
+if [ -z "$setup_path" ]; then
+	echo 'export PATH=$PATH:~/bin' >> ~/.bashrc
+	source ~/.bashrc
+fi
 
 # for stable release
 LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.com/LunarVim/LunarVim/release-1.4/neovim-0.9/utils/installer/install.sh)
@@ -63,8 +70,6 @@ LV_BRANCH='release-1.4/neovim-0.9' bash <(curl -s https://raw.githubusercontent.
 #bash <(curl -s https://raw.githubusercontent.com/lunarvim/lunarvim/master/utils/installer/install.sh)
 
 cp configs/* ~/.config/lvim/
-mkdir -p ~/bin
-cp bin/get-secret-key ~/bin/
 
 echo "------------------------------------------------------------------------------------------------------"
 if [ "$INSTALL_FONTS" = "y" ]; then
