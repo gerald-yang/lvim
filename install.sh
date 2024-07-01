@@ -47,8 +47,14 @@ if [ "$INSTALL_GO" = "y" ] ; then
         fi
 fi
 
-# install libstdc++-12-dev to solve clangd can not find iostream and also make gd work
+echo "Install CPP? y or n: "
+read INSTALL_CPP
+
 sudo apt install -y git make libfuse-dev python3-pip python3-dev python-is-python3 cargo ripgrep exuberant-ctags libstdc++-12-dev
+if [ "$INSTALL_CPP" = "y" ] ; then
+        # install libstdc++-12-dev to solve clangd can not find iostream and also make gd work
+        sudo apt install -y libstdc++-12-dev
+fi
 sudo snap install node --classic
 
 wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
@@ -60,7 +66,8 @@ cp bin/get-secret-key ~/bin/
 setup_path=$(grep 'PATH:~/bin' ~/.bashrc)
 if [ -z "$setup_path" ]; then
 	echo 'export PATH=$PATH:~/bin' >> ~/.bashrc
-	source ~/.bashrc
+        source ~/.bashrc
+	PATH="$PATH:~/bin"
 fi
 
 # for stable release
@@ -82,7 +89,7 @@ echo "~/.local/share/lunarvim/site/pack/lazy/opt/dracula.nvim/lua/dracula/palett
 echo ""
 if [ "$INSTALL_GO" = "y" ] ; then
         echo "If you hit: xxx/gopls.lua:16: attempt to get length of upvalue 'mod_cache' (a nil value)"
-        echo "get gomodecache path by: go env GOMODECACHE"
+        echo "get gomodecache path by: go env GOMODCACHE"
         echo "modify ~/.local/share/lunarvim/site/pack/lazy/opt/nvim-lspconfig/lua/lspconfig/server_configurations/gopls.lua"
         echo "specify mod_cache path directly in the third line: local mod_cache = ''"
 fi
