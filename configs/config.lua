@@ -79,6 +79,7 @@ lvim.plugins = {
   "airblade/vim-gitgutter",
   "preservim/tagbar",
   "axelf4/vim-strip-trailing-whitespace",
+  "Darazaki/indent-o-matic",
   {
     "jackMort/ChatGPT.nvim",
       event = "VeryLazy",
