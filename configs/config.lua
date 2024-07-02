@@ -59,6 +59,11 @@ lvim.keys.normal_mode["<leader>a"] = ":set nonumber<CR>:set norelativenumber<CR>
 -- Disable mouse, so copy and paste will be handled by terminal
 vim.opt.mouse = ""
 
+-- gd: go to definition
+-- gr: go to reference
+-- gD: go to declaration
+-- gI: go to implementation
+
 -- ChatGPT plugin command
 -- ChatGPT
 -- ChatGPTActAs
@@ -75,36 +80,36 @@ vim.opt.mouse = ""
 
 -- Plugins for colorscheme, golang, python
 lvim.plugins = {
-  "Mofiqul/dracula.nvim",
-  "airblade/vim-gitgutter",
-  "preservim/tagbar",
-  "axelf4/vim-strip-trailing-whitespace",
-  "Darazaki/indent-o-matic",
-  {
-    "jackMort/ChatGPT.nvim",
-      event = "VeryLazy",
-      config = function()
-        require("chatgpt").setup({
-          api_key_cmd = "get-secret-key"
-        })
-      end,
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-        "nvim-lua/plenary.nvim",
-        "folke/trouble.nvim",
-        "nvim-telescope/telescope.nvim"
-      }
-  },
+        "Mofiqul/dracula.nvim",
+        "airblade/vim-gitgutter",
+        "preservim/tagbar",
+        "axelf4/vim-strip-trailing-whitespace",
+        "Darazaki/indent-o-matic",
+        {
+                "jackMort/ChatGPT.nvim",
+                event = "VeryLazy",
+                config = function()
+                        require("chatgpt").setup({
+                                api_key_cmd = "get-secret-key"
+                        })
+                end,
+                dependencies = {
+                        "MunifTanjim/nui.nvim",
+                        "nvim-lua/plenary.nvim",
+                        "folke/trouble.nvim",
+                        "nvim-telescope/telescope.nvim"
+                }
+        },
 
-  -- Plugins for golang and python IDE, copy go-ide.tmp or python-ide.tmp to the bottom of this file
-  --"olexsmir/gopher.nvim",
-  --"leoluz/nvim-dap-go",
-  --"ChristianChiarulli/swenv.nvim",
-  --"stevearc/dressing.nvim",
-  --"mfussenegger/nvim-dap-python",
-  --"nvim-neotest/nvim-nio",
-  --"nvim-neotest/neotest",
-  --"nvim-neotest/neotest-python",
+        -- Plugins for golang and python IDE, copy go-ide.tmp or python-ide.tmp to the bottom of this file
+        --"olexsmir/gopher.nvim",
+        --"leoluz/nvim-dap-go",
+        --"ChristianChiarulli/swenv.nvim",
+        --"stevearc/dressing.nvim",
+        --"mfussenegger/nvim-dap-python",
+        --"nvim-neotest/nvim-nio",
+        --"nvim-neotest/neotest",
+        --"nvim-neotest/neotest-python",
 }
 
 -- Do not use gitgutter key map
@@ -113,12 +118,12 @@ vim.g.gitgutter_map_keys = 0
 local components = require("lvim.core.lualine.components")
 lvim.builtin.lualine.sections.lualine_a = { "mode" }
 lvim.builtin.lualine.sections.lualine_b = {
-  components.branch,
-  components.diff
+        components.branch,
+        components.diff
 }
-lvim.builtin.lualine.sections.lualine_c = { {"filename", file_status = true, path=2} }
+lvim.builtin.lualine.sections.lualine_c = { { "filename", file_status = true, path = 2 } }
 lvim.builtin.lualine.sections.lualine_y = {
-  components.encoding
+        components.encoding
 }
 
 -- Colorscheme
@@ -129,8 +134,8 @@ lvim.colorscheme = "dracula"
 ------------------------
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
-  { command = "goimports", filetypes = { "go" } },
-  { command = "gofumpt", filetypes = { "go" } },
+        { command = "goimports", filetypes = { "go" } },
+        { command = "gofumpt",   filetypes = { "go" } },
 }
 
 lvim.format_on_save = true
