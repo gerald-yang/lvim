@@ -9,6 +9,11 @@ sudo apt update
 
 echo "Install JetbrainsNL fonts? y or n: "
 read INSTALL_FONTS
+echo "Install GO? y or n: "
+read INSTALL_GO
+echo "Install CPP? y or n: "
+read INSTALL_CPP
+
 if [ "$INSTALL_FONTS" = "y" ]; then
         mkdir -p ~/.local/share/fonts
         tar xf font.tgz
@@ -17,8 +22,6 @@ if [ "$INSTALL_FONTS" = "y" ]; then
         fc-cache -fv
 fi
 
-echo "Install GO? y or n: "
-read INSTALL_GO
 if [ "$INSTALL_GO" = "y" ] ; then
         echo "Install go packages"
         sudo snap install go --classic
@@ -47,10 +50,7 @@ if [ "$INSTALL_GO" = "y" ] ; then
         fi
 fi
 
-echo "Install CPP? y or n: "
-read INSTALL_CPP
-
-sudo apt install -y git make libfuse-dev python3-pip python3-dev python-is-python3 cargo ripgrep exuberant-ctags libstdc++-12-dev
+sudo apt install -y git make libfuse-dev python3-pip python3-dev python-is-python3 cargo ripgrep exuberant-ctags
 if [ "$INSTALL_CPP" = "y" ] ; then
         # install libstdc++-12-dev to solve clangd can not find iostream and also make gd work
         sudo apt install -y libstdc++-12-dev
