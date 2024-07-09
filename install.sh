@@ -50,7 +50,7 @@ if [ "$INSTALL_GO" = "y" ] ; then
         fi
 fi
 
-sudo apt install -y git make libfuse-dev python3-pip python3-dev python-is-python3 cargo ripgrep exuberant-ctags
+sudo apt install -y git make libfuse-dev python3-pip python3-dev python-is-python3 python3-pynvim cargo ripgrep exuberant-ctags
 if [ "$INSTALL_CPP" = "y" ] ; then
         # install libstdc++-12-dev to solve clangd can not find iostream and also make gd work
         sudo apt install -y libstdc++-12-dev
