@@ -85,21 +85,21 @@ lvim.plugins = {
         "preservim/tagbar",
         "axelf4/vim-strip-trailing-whitespace",
         "Darazaki/indent-o-matic",
-        {
-                "jackMort/ChatGPT.nvim",
-                event = "VeryLazy",
-                config = function()
-                        require("chatgpt").setup({
-                                api_key_cmd = "get-secret-key"
-                        })
-                end,
-                dependencies = {
-                        "MunifTanjim/nui.nvim",
-                        "nvim-lua/plenary.nvim",
-                        "folke/trouble.nvim",
-                        "nvim-telescope/telescope.nvim"
-                }
-        },
+        --{
+        --        "jackMort/ChatGPT.nvim",
+        --        event = "VeryLazy",
+        --       config = function()
+        --                require("chatgpt").setup({
+        --                        api_key_cmd = "get-secret-key"
+        --                })
+        --        end,
+        --        dependencies = {
+        --                "MunifTanjim/nui.nvim",
+        --                "nvim-lua/plenary.nvim",
+        --                "folke/trouble.nvim",
+        --                "nvim-telescope/telescope.nvim"
+        --        }
+        --},
 
         -- Plugins for golang and python IDE, copy go-ide.tmp or python-ide.tmp to the bottom of this file
         --"olexsmir/gopher.nvim",
