@@ -64,20 +64,6 @@ vim.opt.mouse = ""
 -- gD: go to declaration
 -- gI: go to implementation
 
--- ChatGPT plugin command
--- ChatGPT
--- ChatGPTActAs
--- ChatGPTCompleteCode
--- ChatGPTEditWithInstructions
--- ChatGPTRun
-
--- ChatGPT plugin key bindings
--- <Tab> to switch windows
--- <C-c> to close chat window
--- <C-p> toggle session list
--- <C-k> to copy/yank code from last answer
--- <C-h> toogle help window
-
 -- Plugins for colorscheme, golang, python
 lvim.plugins = {
         "Mofiqul/dracula.nvim",
@@ -85,21 +71,6 @@ lvim.plugins = {
         "preservim/tagbar",
         "axelf4/vim-strip-trailing-whitespace",
         "Darazaki/indent-o-matic",
-        --{
-        --        "jackMort/ChatGPT.nvim",
-        --        event = "VeryLazy",
-        --       config = function()
-        --                require("chatgpt").setup({
-        --                        api_key_cmd = "get-secret-key"
-        --                })
-        --        end,
-        --        dependencies = {
-        --                "MunifTanjim/nui.nvim",
-        --                "nvim-lua/plenary.nvim",
-        --                "folke/trouble.nvim",
-        --                "nvim-telescope/telescope.nvim"
-        --        }
-        --},
 
         -- Plugins for golang and python IDE, copy go-ide.tmp or python-ide.tmp to the bottom of this file
         --"olexsmir/gopher.nvim",

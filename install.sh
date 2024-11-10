@@ -7,7 +7,7 @@ fi
 
 sudo apt update
 
-echo "Install JetbrainsNL fonts? y or n: "
+echo "Install JetbrainsNL fonts (no need in container)? y or n: "
 read INSTALL_FONTS
 echo "Install GO? y or n: "
 read INSTALL_GO
@@ -61,7 +61,6 @@ wget https://github.com/neovim/neovim/releases/download/v0.10.0/nvim.appimage
 chmod +x nvim.appimage
 mkdir -p ~/bin
 mv nvim.appimage ~/bin/nvim
-cp bin/get-secret-key ~/bin/
 
 setup_path=$(grep 'PATH:~/bin' ~/.bashrc)
 if [ -z "$setup_path" ]; then
@@ -84,6 +83,7 @@ if [ "$INSTALL_FONTS" = "y" ]; then
         echo ""
 fi
 echo ""
+echo "source ~/.profile to set lvim binary path"
 echo "Start lvim first to install additional plugins and then modify background color (bg) to #181818 in"
 echo "~/.local/share/lunarvim/site/pack/lazy/opt/dracula.nvim/lua/dracula/palette.lua"
 echo ""
@@ -91,7 +91,7 @@ if [ "$INSTALL_GO" = "y" ] ; then
         echo "If you hit: xxx/gopls.lua:16: attempt to get length of upvalue 'mod_cache' (a nil value)"
         echo "get gomodecache path by: go env GOMODCACHE"
         echo "modify ~/.local/share/lunarvim/site/pack/lazy/opt/nvim-lspconfig/lua/lspconfig/server_configurations/gopls.lua"
-        echo "specify mod_cache path directly in the third line: local mod_cache = ''"
+        echo "specify mod_cache path directly in the third line: local mod_cache = 'path to GOMODCACHE'"
 fi
 echo ""
 echo "------------------------------------------------------------------------------------------------------"
